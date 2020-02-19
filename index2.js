@@ -6,12 +6,12 @@ function addTodo(event) {
   item.innerText = document.getElementById("item").value;
   item.addEventListener("click", completeTodo);
 
-  const button =  document.createElement("button");
+  const button = document.createElement("button");
   button.innerText = "x";
   button.addEventListener("click", removeTodo);
   item.append(button);
 
-  const list = document.querySelector("ul")
+  const list = document.querySelector("ul");
   list.appendChild(item);
 }
 
@@ -19,12 +19,11 @@ function removeTodo(event) {
   event.target.parentNode.remove();
 }
 
-function completeTodo(event){
+function completeTodo(event) {
   const value = event.target.getAttribute("aria-checked");
-  if (value === "false")
-{
-    event.target.setAttribute("aria-checked", "true")
-  } else { 
-    event.target.setAttribute("aria-checked", "false")
-}
+  if (value !== "true") {
+    event.target.setAttribute("aria-checked", "true");
+  } else {
+    event.target.setAttribute("aria-checked", "false");
+  }
 }
